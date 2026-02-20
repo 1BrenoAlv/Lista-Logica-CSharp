@@ -4,7 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string modelo = "1 - Jogo de adivinhação\n2 - Manipulação de array\n3 - Calculadora de caixa eletrônico\n4 - Validador de CPF\n5 - Mini banco\n0 - Encerrar";
+        string modelo = "1 - Jogo de adivinhação\n2 - Manipulação de array\n3 - Calculadora de caixa eletrônico\n4 - Validador de CPF\n0 - Encerrar";
 
         Console.WriteLine("Exercicio 2\n");
         Console.WriteLine("Escolha o Exercicio de sua preferencia e teste:\n");
@@ -29,9 +29,6 @@ class Program
                     break;
                 case 4:
                     ExercicioAvancado.ValidadorCPF();
-                    break;
-                case 5:
-                    ExercicioAvancado.MiniBanco();
                     break;
                 case 0:
                     Console.WriteLine("Programa Encerrado!");

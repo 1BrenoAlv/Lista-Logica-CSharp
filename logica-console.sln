@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercicio001", "logica-cons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercicio002", "Exercicio002\Exercicio002.csproj", "{D4E25814-4C44-46DB-B612-4B23E7F48002}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaBank", "BaBank\BaBank.csproj", "{5EAE9513-56ED-4853-A367-8154A4DA353F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D4E25814-4C44-46DB-B612-4B23E7F48002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4E25814-4C44-46DB-B612-4B23E7F48002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4E25814-4C44-46DB-B612-4B23E7F48002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EAE9513-56ED-4853-A367-8154A4DA353F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EAE9513-56ED-4853-A367-8154A4DA353F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EAE9513-56ED-4853-A367-8154A4DA353F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EAE9513-56ED-4853-A367-8154A4DA353F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

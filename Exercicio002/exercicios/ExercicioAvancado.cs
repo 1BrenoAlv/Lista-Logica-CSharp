@@ -101,10 +101,35 @@ namespace Exercicio002.exercicios
 
         public static void ValidadorCPF()
         {
-            Console.WriteLine("EM BREVE");
+            Console.Write("Digite seu CPF 👀👀: ");
+            string entrada = Console.ReadLine();
+            int[] cpf = new int[11];
+            for (int i = 0; i < cpf.Length; i++)
+            {
+                cpf[i] = int.Parse(entrada[i].ToString());
+            }
+            int somaPrimeira = 0;
+            for (int i = 0; i < 9; i++)
+            {
+                somaPrimeira += cpf[i] * (10 - i) ;
+            }
+           int resto = somaPrimeira % 11;
+            int primeiroDigito = resto < 2 ? 0 : 11 - resto;
+            int somaSegunda = 0; 
+            for (int i = 0; i < 10; i++)
+            {
+                somaSegunda += cpf[i] * (11 - i);
+               
+            }
+           resto = somaSegunda % 11;
+            int segundoDigito = resto < 2 ? 0 : 11 - resto;
+             bool cpfValido = primeiroDigito == cpf[9] && segundoDigito == cpf[10];
+          string masc = new string(cpf.Select((c, i) => i < cpf.Length - 2 ? '*' : (char)('0' + c)).ToArray());
+            string cpfFormatado = $"{masc.Substring(0, 3)}.{masc.Substring(3, 3)}.{masc.Substring(6, 3)}-{masc.Substring(9, 2)}";
+            Console.WriteLine(cpfValido ? $"O CPF {cpfFormatado} Válido!" : $"O CPF {cpfFormatado} Inválido!");
         }
         public static void MiniBanco() {
-            Console.WriteLine("EM BREVE");
+           
         }
     }
 }
