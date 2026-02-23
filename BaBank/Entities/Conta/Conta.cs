@@ -12,20 +12,21 @@ namespace BaBank.Entities.Conta
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public int NumeroConta { get; set; }
-        public string Titular { get; set; }
+        public string Titular { get; set; } 
         public decimal Saldo { get; set; }
         List<Registro> Registros { get; set; }
-
-        public Conta(int id, string nome, string sobrenome, int numeroConta, string titular, decimal saldo, List<Registro> registros)
+        private static int _contadorId = 0;
+        public Conta(string nome, string sobrenome, int numeroConta, decimal saldo, List<Registro> registros)
         {
-            Id = id;
+            Id = Interlocked.Increment(ref _contadorId);
             Nome = nome;
             Sobrenome = sobrenome;
             NumeroConta = numeroConta;
-            Titular = titular;
+            Titular = $"{Nome} {Sobrenome}"; 
             Saldo = saldo;
             Registros = registros;
         }
+        public Conta() { }
 
         public void Depositar(decimal valor)
         {
@@ -41,6 +42,36 @@ namespace BaBank.Entities.Conta
             registro.RegistrarMovimentacaoSaque(valor);
             Registros.Add(registro);
         }
-        
+
+        public void Pix(decimal valor, string? pix)
+        {
+            Saldo -= valor;
+            Registro registro = new Registro();
+            registro.RegistrarMovimentacaoPix(valor, pix);
+            Registros.Add(registro);
+        }
+
+        public void ExibirSaldo()
+            {
+                Console.WriteLine($"Saldo atual: R${Saldo}");
+        }
+
+        public void ExibirExtrato()
+        {
+            Console.WriteLine("Extrato:");
+            foreach (var reg in Registros)
+            {
+                reg.ExibirRegistro();
+            }
+            Console.WriteLine($"Total em conta: R${Saldo}");
+        }
+
+        public override string ToString()
+        {
+            return $"ID: {Id}\nTitular: {Titular}\n" +
+                $"Conta: {NumeroConta}\n";
+               
+        }
+
     }
 }

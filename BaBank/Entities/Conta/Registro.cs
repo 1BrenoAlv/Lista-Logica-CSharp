@@ -10,12 +10,8 @@ namespace BaBank.Entities.Conta
     {
         public DateTime DataRegistro { get; set; }
         public decimal Movimentacao { get; set; }
+        public string? Pix { get; set; }
 
-        public Registro(DateTime dataRegistro, decimal movimentacao)
-        {
-           DataRegistro = dataRegistro;
-            Movimentacao = movimentacao;
-        }
         public Registro() { }
         public void RegistrarMovimentacaoDeposito(decimal valor)
         {
@@ -29,9 +25,27 @@ namespace BaBank.Entities.Conta
             DataRegistro = DateTime.Now;
         }
 
-        void ExibirRegistro()
+        public void RegistrarMovimentacaoPix(decimal valor, string? pix)
         {
-            Console.WriteLine($"Data: {DataRegistro}, Movimentação: {Movimentacao}");
+            Movimentacao -= valor;
+            Pix = pix;
+            DataRegistro = DateTime.Now;
+        }
+
+        public void ExibirRegistro()
+        {
+            if (Pix != null)
+            {
+                Console.WriteLine($"---------------------------" +
+                $"\nData: {DataRegistro}\n" +
+                $"Movimentação: R${Movimentacao}\n" +
+                $"Transação: {Pix}\n" +
+                $"---------------------------");
+            }
+            Console.WriteLine($"---------------------------" +
+                $"\nData: {DataRegistro}\n" +
+                $"Movimentação: R${Movimentacao}\n" +
+                $"---------------------------");
         }
     }
 }
